@@ -450,9 +450,11 @@ a {
 
 .budget__fill {
   height: 100%;
-  width: 0;
+  /* Ширину задаём через scaleX: transform анимируется без пересчёта раскладки */
+  transform: scaleX(0);
+  transform-origin: left;
   background: var(--success);
-  transition: width 0.4s;
+  transition: transform 0.4s;
 }
 
 .budget__fill--warning {

@@ -110,7 +110,7 @@ function renderStats() {
 
   const percent = (month / budget) * 100;
   const fill = document.getElementById("budget-fill");
-  fill.style.width = `${Math.min(percent, 100)}%`;
+  fill.style.transform = `scaleX(${Math.min(percent, 100) / 100})`;
   fill.classList.toggle("budget__fill--warning", percent >= 80 && percent <= 100);
   fill.classList.toggle("budget__fill--over", percent > 100);
   document.getElementById("budget-text").textContent =
