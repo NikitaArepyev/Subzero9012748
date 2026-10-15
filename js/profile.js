@@ -33,7 +33,7 @@ function validate() {
   );
   const budgetOk = setError(
     form.budget,
-    budget === "" || (Number(budget) >= 0 && Number(budget) <= 1000000) ? "" : "Бюджет — от 0 до 1 000 000 ₽"
+    budget === "" || (Number(budget) >= 0 && Number(budget) <= 5000000) ? "" : "Бюджет — от 0 до 5 000 000 ₸"
   );
 
   return nameOk && emailOk && budgetOk;

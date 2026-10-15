@@ -165,8 +165,8 @@ function validate() {
     showError(form.title, "Название — от 2 до 40 символов");
     valid = false;
   }
-  if (!form.price.value || price <= 0 || price > 100000) {
-    showError(form.price, "Укажите цену от 1 до 100 000 ₽");
+  if (!form.price.value || price <= 0 || price > 500000) {
+    showError(form.price, "Укажите цену от 1 до 500 000 ₸");
     valid = false;
   }
   if (!form.date.value) {

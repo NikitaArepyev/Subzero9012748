@@ -65,11 +65,11 @@ const CATEGORIES = {
 
 // Демо-данные при первом запуске: даты считаются от сегодняшнего дня
 const DEFAULT_SUBS = [
-  { id: 1, name: "Яндекс Плюс", price: 399, period: "month", category: "video", date: daysFromToday(2) },
-  { id: 2, name: "Spotify", price: 199, period: "month", category: "music", date: daysFromToday(9) },
-  { id: 3, name: "ChatGPT Plus", price: 1990, period: "month", category: "ai", date: daysFromToday(15) },
-  { id: 4, name: "iCloud 200 ГБ", price: 299, period: "month", category: "cloud", date: daysFromToday(21) },
-  { id: 5, name: "Кинопоиск", price: 2990, period: "year", category: "video", date: daysFromToday(64) },
+  { id: 1, name: "Яндекс Плюс", price: 1990, period: "month", category: "video", date: daysFromToday(2) },
+  { id: 2, name: "Spotify", price: 1290, period: "month", category: "music", date: daysFromToday(9) },
+  { id: 3, name: "ChatGPT Plus", price: 9990, period: "month", category: "ai", date: daysFromToday(15) },
+  { id: 4, name: "iCloud 200 ГБ", price: 1490, period: "month", category: "cloud", date: daysFromToday(21) },
+  { id: 5, name: "Кинопоиск", price: 14990, period: "year", category: "video", date: daysFromToday(64) },
 ];
 
 function loadSubs() {
@@ -87,7 +87,8 @@ function totalPerMonth(subs) {
 
 const moneyFormat = new Intl.NumberFormat("ru-RU", {
   style: "currency",
-  currency: "RUB",
+  currency: "KZT",
+  currencyDisplay: "narrowSymbol", // знак ₸ вместо «KZT»
   maximumFractionDigits: 0,
 });
 
