@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Список ваших подписок, траты в месяц и в год, ближайшие списания.">
+  <title>Мои подписки — SubZero</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">
+        <img src="img/logo.svg" alt="Логотип SubZero" width="32" height="32">
+        SubZero
+      </a>
+      <button class="burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav">
+        <span></span>
+      </button>
+      <nav class="nav" id="nav" aria-label="Основная навигация">
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__link">Главная</a></li>
+          <li><a href="subscriptions.html" class="nav__link nav__link--active" aria-current="page">Мои подписки</a></li>
+          <li><a href="profile.html" class="nav__link">Профиль</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-head">
+      <h1>Мои подписки</h1>
+      <p class="page-head__text">Все регулярные платежи в одном месте.</p>
+    </section>
+
+    <section aria-label="Сводка расходов">
+      <div class="stats">
+        <article class="card stat">
+          <p class="stat__label">В месяц</p>
+          <p class="stat__value" id="total-month">0 ₽</p>
+        </article>
+        <article class="card stat">
+          <p class="stat__label">В год</p>
+          <p class="stat__value" id="total-year">0 ₽</p>
+        </article>
+        <article class="card stat">
+          <p class="stat__label">Ближайшее списание</p>
+          <p class="stat__value" id="next-payment">—</p>
+        </article>
+      </div>
+
+      <div class="card budget">
+        <div class="budget__head">
+          <strong>Бюджет на подписки</strong>
+          <span id="budget-text">Задайте лимит в <a href="profile.html">профиле</a></span>
+        </div>
+        <div class="budget__bar">
+          <div class="budget__fill" id="budget-fill"></div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Список подписок">
+      <div class="toolbar">
+        <div class="toolbar__search">
+          <label for="search" class="visually-hidden">Поиск по названию</label>
+          <input type="search" id="search" class="input" placeholder="Поиск по названию">
+        </div>
+        <label for="filter-category" class="visually-hidden">Категория</label>
+        <select id="filter-category" class="input toolbar__select">
+          <option value="all">Все категории</option>
+        </select>
+        <label for="sort" class="visually-hidden">Сортировка</label>
+        <select id="sort" class="input toolbar__select">
+          <option value="date">Сначала ближайшие</option>
+          <option value="price-desc">Сначала дорогие</option>
+          <option value="price-asc">Сначала дешёвые</option>
+          <option value="name">По названию</option>
+        </select>
+        <button type="button" class="btn btn--primary" id="add-btn">+ Добавить</button>
+      </div>
+
+      <ul class="sub-list" id="sub-list"></ul>
+      <p class="empty" id="empty" hidden>Ничего не найдено. Добавьте первую подписку!</p>
+    </section>
+  </main>
+
+  <!-- Шаблон карточки подписки: клонируется в JS -->
+  <template id="sub-template">
+    <li class="card sub">
+      <div class="sub__top">
+        <span class="sub__icon" aria-hidden="true"></span>
+        <div>
+          <h2 class="sub__name"></h2>
+          <p class="sub__category"></p>
+        </div>
+        <p class="sub__price"></p>
+      </div>
+      <p class="sub__date"></p>
+      <div class="sub__actions">
+        <button type="button" class="btn btn--outline btn--small" data-action="edit">Изменить</button>
+        <button type="button" class="btn btn--danger btn--small" data-action="delete">Удалить</button>
+      </div>
+    </li>
+  </template>
+
+  <dialog class="modal" id="sub-modal" aria-labelledby="modal-title">
+    <form id="sub-form" novalidate>
+      <h2 id="modal-title">Новая подписка</h2>
+
+      <div class="field">
+        <label for="sub-name" class="field__label">Название сервиса</label>
+        <input type="text" id="sub-name" name="title" class="input" placeholder="Например, Яндекс Плюс">
+        <span class="field__error" id="sub-name-error"></span>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="sub-price" class="field__label">Цена, ₽</label>
+          <input type="number" id="sub-price" name="price" class="input" min="1" step="1" placeholder="299">
+          <span class="field__error" id="sub-price-error"></span>
+        </div>
+        <div class="field">
+          <label for="sub-period" class="field__label">Период</label>
+          <select id="sub-period" name="period" class="input">
+            <option value="month">Раз в месяц</option>
+            <option value="year">Раз в год</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="sub-category" class="field__label">Категория</label>
+          <select id="sub-category" name="category" class="input"></select>
+        </div>
+        <div class="field">
+          <label for="sub-date" class="field__label">Следующее списание</label>
+          <input type="date" id="sub-date" name="date" class="input">
+          <span class="field__error" id="sub-date-error"></span>
+        </div>
+      </div>
+
+      <div class="modal__actions">
+        <button type="button" class="btn btn--outline" id="cancel-btn">Отмена</button>
+        <button type="submit" class="btn btn--primary">Сохранить</button>
+      </div>
+    </form>
+  </dialog>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© 2026 SubZero — учебный проект</p>
+      <p><a href="index.html">Главная</a> · <a href="profile.html">Профиль</a></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/subscriptions.js"></script>
+</body>
+</html>

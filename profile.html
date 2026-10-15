@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Профиль и настройки бюджета SubZero.">
+  <title>Профиль — SubZero</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">
+        <img src="img/logo.svg" alt="Логотип SubZero" width="32" height="32">
+        SubZero
+      </a>
+      <button class="burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav">
+        <span></span>
+      </button>
+      <nav class="nav" id="nav" aria-label="Основная навигация">
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__link">Главная</a></li>
+          <li><a href="subscriptions.html" class="nav__link">Мои подписки</a></li>
+          <li><a href="profile.html" class="nav__link nav__link--active" aria-current="page">Профиль</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-head">
+      <h1>Профиль</h1>
+      <p class="page-head__text">Укажите бюджет — SubZero подскажет, когда вы его превышаете.</p>
+    </section>
+
+    <div class="profile">
+      <aside class="card profile__card" aria-label="Карточка пользователя">
+        <div class="avatar" id="avatar" aria-hidden="true">?</div>
+        <h2 id="profile-name">Гость</h2>
+        <p class="profile__email" id="profile-email">Email не указан</p>
+        <ul class="profile__stats">
+          <li><span>Подписок</span><strong id="stat-count">0</strong></li>
+          <li><span>В месяц</span><strong id="stat-month">0 ₽</strong></li>
+          <li><span>Бюджет</span><strong id="stat-budget">—</strong></li>
+        </ul>
+      </aside>
+
+      <section class="card" aria-labelledby="settings-title">
+        <h2 id="settings-title">Настройки</h2>
+        <form id="profile-form" novalidate>
+          <div class="field">
+            <label for="name" class="field__label">Имя</label>
+            <input type="text" id="name" name="username" class="input" autocomplete="given-name">
+            <span class="field__error" id="name-error"></span>
+          </div>
+
+          <div class="field">
+            <label for="email" class="field__label">Email</label>
+            <input type="email" id="email" name="email" class="input" autocomplete="email" placeholder="you@example.com">
+            <span class="field__error" id="email-error"></span>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="budget" class="field__label">Бюджет в месяц, ₽</label>
+              <input type="number" id="budget" name="budget" class="input" min="0" step="100" placeholder="2000">
+              <span class="field__error" id="budget-error"></span>
+            </div>
+            <div class="field">
+              <label for="remind" class="field__label">Подсвечивать списания за</label>
+              <select id="remind" name="remind" class="input">
+                <option value="1">1 день</option>
+                <option value="3">3 дня</option>
+                <option value="7">7 дней</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn--primary">Сохранить</button>
+          <p class="form-message" id="form-message" role="status"></p>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© 2026 SubZero — учебный проект</p>
+      <p><a href="index.html">Главная</a> · <a href="subscriptions.html">Мои подписки</a></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>
