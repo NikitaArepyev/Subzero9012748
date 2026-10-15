@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 340">
+  <circle cx="300" cy="90" r="70" fill="#e3e7ff"/>
+  <circle cx="90" cy="270" r="50" fill="#dcf5e6"/>
+  <!-- задняя карточка -->
+  <rect x="120" y="40" width="240" height="120" rx="18" fill="#c9d0ff"/>
+  <!-- средняя карточка -->
+  <rect x="80" y="100" width="260" height="130" rx="18" fill="#3b4cca"/>
+  <rect x="104" y="128" width="90" height="12" rx="6" fill="#fff" opacity=".85"/>
+  <rect x="104" y="152" width="140" height="10" rx="5" fill="#fff" opacity=".5"/>
+  <rect x="104" y="192" width="70" height="18" rx="9" fill="#7ee2a8"/>
+  <!-- передняя карточка со списком -->
+  <rect x="40" y="170" width="250" height="140" rx="18" fill="#fff" stroke="#e2e5ef" stroke-width="2"/>
+  <circle cx="72" cy="208" r="12" fill="#ef4444"/>
+  <rect x="94" y="200" width="100" height="10" rx="5" fill="#1c1e2b"/>
+  <rect x="226" y="200" width="40" height="10" rx="5" fill="#5b6075"/>
+  <circle cx="72" cy="244" r="12" fill="#16a34a"/>
+  <rect x="94" y="236" width="80" height="10" rx="5" fill="#1c1e2b"/>
+  <rect x="226" y="236" width="40" height="10" rx="5" fill="#5b6075"/>
+  <circle cx="72" cy="280" r="12" fill="#f59e0b"/>
+  <rect x="94" y="272" width="110" height="10" rx="5" fill="#1c1e2b"/>
+  <rect x="226" y="272" width="40" height="10" rx="5" fill="#5b6075"/>
+</svg>

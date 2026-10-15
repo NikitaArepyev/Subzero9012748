@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SubZero — трекер подписок: узнайте, сколько вы тратите на сервисы, и не платите за забытые.">
+  <title>SubZero — трекер подписок</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">
+        <img src="img/logo.svg" alt="Логотип SubZero" width="32" height="32">
+        SubZero
+      </a>
+      <button class="burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav">
+        <span></span>
+      </button>
+      <nav class="nav" id="nav" aria-label="Основная навигация">
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__link nav__link--active" aria-current="page">Главная</a></li>
+          <li><a href="subscriptions.html" class="nav__link">Мои подписки</a></li>
+          <li><a href="profile.html" class="nav__link">Профиль</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero__inner">
+        <div>
+          <h1 class="hero__title">Перестаньте платить за <span class="hero__accent">забытые подписки</span></h1>
+          <p class="hero__text">
+            Кино, музыка, облако, нейросети — по 299 ₽ незаметно набегают тысячи.
+            SubZero собирает все подписки в одном месте, считает траты и напоминает о списаниях.
+          </p>
+          <div class="hero__actions">
+            <a href="subscriptions.html" class="btn btn--primary">Посчитать мои подписки</a>
+            <a href="#how" class="btn btn--outline">Как это работает</a>
+          </div>
+        </div>
+        <img class="hero__image" src="img/hero.svg" alt="Карточки подписок со списком сервисов и ценами" width="420" height="340">
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="problem-title">
+      <div class="container">
+        <h2 class="section__title" id="problem-title">Почему это важно</h2>
+        <div class="facts">
+          <article class="card fact">
+            <p class="fact__number">6+</p>
+            <p class="fact__text">платных подписок в среднем у студента и молодого специалиста</p>
+          </article>
+          <article class="card fact">
+            <p class="fact__number">~30%</p>
+            <p class="fact__text">подписок человек не использует, но продолжает за них платить</p>
+          </article>
+          <article class="card fact">
+            <p class="fact__number">1 день</p>
+            <p class="fact__text">чаще всего пробный период превращается в платный без предупреждения</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how" aria-labelledby="how-title">
+      <div class="container">
+        <h2 class="section__title" id="how-title">Как это работает</h2>
+        <ol class="steps">
+          <li class="card step">
+            <h3>Добавьте подписки</h3>
+            <p>Название, цена, период оплаты и дата следующего списания — меньше минуты на сервис.</p>
+          </li>
+          <li class="card step">
+            <h3>Увидьте реальную сумму</h3>
+            <p>SubZero переводит годовые тарифы в месячные и показывает, сколько уходит в месяц и в год.</p>
+          </li>
+          <li class="card step">
+            <h3>Держите бюджет</h3>
+            <p>Задайте лимит в профиле — скорые списания и превышение бюджета подсвечиваются.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="faq-title">
+      <div class="container">
+        <h2 class="section__title" id="faq-title">Частые вопросы</h2>
+        <div class="faq">
+          <details class="card faq__item">
+            <summary class="faq__question">Нужно ли привязывать банковскую карту?</summary>
+            <p class="faq__answer">Нет. Вы вносите подписки вручную, SubZero не имеет доступа к вашим деньгам.</p>
+          </details>
+          <details class="card faq__item">
+            <summary class="faq__question">Где хранятся мои данные?</summary>
+            <p class="faq__answer">Только в вашем браузере (localStorage). Никакой регистрации и серверов.</p>
+          </details>
+          <details class="card faq__item">
+            <summary class="faq__question">Это бесплатно?</summary>
+            <p class="faq__answer">Да. Было бы странно брать подписку за сервис, который помогает от них избавиться.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="card cta">
+          <h2>Сколько вы тратите на подписки?</h2>
+          <p>Узнайте за 2 минуты — без регистрации.</p>
+          <a href="subscriptions.html" class="btn">Начать</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© 2026 SubZero — учебный проект</p>
+      <p><a href="subscriptions.html">Мои подписки</a> · <a href="profile.html">Профиль</a></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
