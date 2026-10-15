@@ -8,7 +8,7 @@
 **Решение:** SubZero собирает все подписки в одном месте, считает реальные траты в месяц и в год,
 подсвечивает скорые списания и предупреждает о превышении бюджета.
 
-🔗 Сайт: https://nikitaarepyev.github.io/arepyev-nikita-fullstack-frontend/
+🔗 Сайт: https://nikitaarepyev.github.io/Subzero9012748/
 
 ## Скриншоты
 
